@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class QuizProcessor {
+    private List<Integer> userScores = new ArrayList<>();
+
+    public int calculateScore(String[] correctAnswers, String[] userAnswers) {
+        int score = 0;
+        for (int i = 0; i < correctAnswers.length && i < userAnswers.length; i++) {
+            if (correctAnswers[i].equalsIgnoreCase(userAnswers[i])) {
+                score++;
+            }
+        }
+        userScores.add(score);
+        return score;
+    }
+
+    public String assignGrade(int score, int totalQuestions) {
+        double percentage = (score * 100.0) / totalQuestions;
+
+        if (percentage >= 90) return "A";
+        if (percentage >= 80) return "B";
+        if (percentage >= 70) return "C";
+        if (percentage >= 60) return "D";
+        return "F";
+    }
+
+    public List<Integer> getAllScores() {
+        return userScores;
+    }
+}
