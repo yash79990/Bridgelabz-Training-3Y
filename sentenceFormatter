@@ -1,0 +1,18 @@
+public class SentenceFormatter {
+    public static String formatParagraph(String text) {
+        text = text.trim().replaceAll("\\s+", " ");
+        text = text.replaceAll("([.!?])\\s*", "$1 ");
+
+        String[] sentences = text.split("(?<=[.!?]) ");
+        StringBuilder result = new StringBuilder();
+
+        for (String sentence : sentences) {
+            if (!sentence.isEmpty()) {
+                result.append(Character.toUpperCase(sentence.charAt(0)))
+                      .append(sentence.substring(1)).append(" ");
+            }
+        }
+
+        return result.toString().trim();
+    }
+}
