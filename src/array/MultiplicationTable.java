@@ -1,4 +1,4 @@
-package array_level1;
+package array;
 import java.util.Scanner;
 
 public class MultiplicationTable {
