@@ -1,0 +1,52 @@
+1️⃣ Class Diagram
+
+The system has three classes:
+
+1. Student
+2. Subject
+3. GradeCalculator
+
+Structure:
+
++-------------------+        +-------------------+        +-------------------+
+|     Student       |        |     Subject       |        |  GradeCalculator  |
++-------------------+        +-------------------+        +-------------------+
+| - name: String    |        | - name: String    |        |                   |
+| - subjects: List  |<>----->| - marks: int      |        |                   |
++-------------------+        +-------------------+        +-------------------+
+| + getName()       |        | + getName()       |        | + calculateGrade() |
+| + getSubjects()   |        | + getMarks()      |        |                   |
++-------------------+        +-------------------+        +-------------------+
+
+2️⃣ Object Diagram
+
+This shows a snapshot at runtime.
+
++----------------------+
+| Student: John        |
+|----------------------|
+| subjects → {         |
+|   Maths: 90,         |
+|   Science: 85        |
+| }                    |
++----------------------+
+
+
+3️⃣ Sequence Diagram
+
+Scenario: John wants his grade.
+
+ Student         GradeCalculator        Subject
+    |                   |                  |
+    | getSubjects()     |                  |
+    |------------------>|                  |
+    |  subjects list    |                  |
+    |<------------------|                  |
+    |                   | getMarks()       |
+    |                   |----------------->|
+    |                   | 90, 85           |
+    |                   |<-----------------|
+    |                   | calculateGrade() |
+    |                   |----------------->|
+    |                   | result = "A"     |
+    |<-------------------------------------|

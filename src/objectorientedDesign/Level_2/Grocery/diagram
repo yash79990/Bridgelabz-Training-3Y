@@ -1,0 +1,28 @@
+✅ Class Diagram
+
+Classes & Relationships:
+1. Customer
+Attributes: name, list of products
+Methods: addProduct(), getProducts(), getName()
+
+2. Product
+Attributes: name, quantity, pricePerUnit
+Methods: getName(), getQuantity(), getPricePerUnit(), getTotalPrice()
+
+3. BillGenerator
+Methods: generateBill(Customer), printBill(Customer)
+
+Relationships:
+Customer → Product : Composition (a customer owns purchased products).
+BillGenerator → Customer : Uses relationship (association).
+
+
+Customer        BillGenerator       Product
+   |                   |                |
+   |---addProduct()--->|                |
+   |                   |---getProducts()|
+   |                   |<---------------|
+   |                   |---getTotalPrice()---->|
+   |                   |<----------------------|
+   |                   |---printBill()---------|
+   |<------------------------------------------|

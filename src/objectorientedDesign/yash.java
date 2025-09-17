@@ -1,4 +1,4 @@
 package objectorientedDesign;
 
-public class tatti {
+public class yash {
 }
